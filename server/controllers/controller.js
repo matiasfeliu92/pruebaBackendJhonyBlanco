@@ -2,8 +2,8 @@ const ViviendaModel = require('../models/Vivienda')
 
 const viviendaController = {
 
-    mostrarTodas: async(req, res) => {
-        const viviendas = await ViviendaModel.findAll()
+    mostrarTodas: (req, res) => {
+        const viviendas = ViviendaModel.findAll()
         if(viviendas) {
             res.status(200).json(viviendas)
         } else {

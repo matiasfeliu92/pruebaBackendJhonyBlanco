@@ -10,6 +10,8 @@ server.use(morgan('dev'))
 server.use(express.urlencoded({extended: false}))
 server.use(express.json())
 
+server.use('/viviendas', require('./routes/viviendaRouter'))
+
 server.listen(server.get('port'), () => {
     console.log("http://localhost:"+server.get('port'))
 })
