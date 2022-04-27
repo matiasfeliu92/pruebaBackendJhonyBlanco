@@ -4,7 +4,8 @@
   "description": "cotizador de viviendas",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +13,7 @@
   "dependencies": {
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
     "express": "^4.18.0",
     "morgan": "^1.10.0",
     "mysql2": "^2.3.3",
