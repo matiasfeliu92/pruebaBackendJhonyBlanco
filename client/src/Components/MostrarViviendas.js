@@ -24,6 +24,7 @@ const MostrarViviendas = () => {
     <div className='container'>
         <div className="row">
             <h1>Elija su vivienda</h1>
+            <Link to="/viviendas/crear" className='btn btn-primary'>Ingresar una vivienda para la venta</Link>
             {viviendas.map((vivienda) => (
                 <div className="vivienda container-fluid col-md-12 d-flex flex-row justify-content-between align-items-center">
                     <h2>Tipo: {vivienda.tipo}</h2>
