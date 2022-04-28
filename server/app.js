@@ -3,8 +3,6 @@ const morgan = require('morgan')
 
 const server = express()
 
-server.set('port', process.env.PORT || 4000)
-
 server.use(morgan('dev'))
 
 server.use(express.urlencoded({extended: false}))
@@ -12,6 +10,6 @@ server.use(express.json())
 
 server.use('/viviendas', require('./routes/viviendaRouter'))
 
-server.listen(server.get('port'), () => {
-    console.log("http://localhost:"+server.get('port'))
+server.listen(4000, () => {
+    console.log("http://localhost:4000")
 })

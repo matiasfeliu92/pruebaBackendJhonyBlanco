@@ -1,12 +1,12 @@
-const db = require('../database/db')
+const sequelize = require('../database/db')
 const {DataTypes} = require('sequelize')
 
-const ViviendaModel = db.define('viviendas', {
-    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true, null: false},
-    tipo: {type: DataTypes.STRING, null: false},
-    superficie: {type: DataTypes.INTEGER, null: false},
+const ViviendaModel = sequelize.define('casas', {
+    id: {type: DataTypes.INTEGER, primaryKey: true},
+    tipo: {type: DataTypes.STRING},
+    superficie: {type: DataTypes.INTEGER},
     ubicacion: {type: DataTypes.STRING},
-    precio: {type: DataTypes.INTEGER, null: false},
+    precio: {type: DataTypes.INTEGER},
 })
 
 module.exports = ViviendaModel

@@ -1,9 +1,17 @@
 const Sequelize = require('sequelize')
 const dotenv = require('dotenv').config()
 
-const db = new Sequelize('viviendas', process.env.DB_USER, process.env.DB_PASS, {
-    host: process.env.DB_HOST,
+const sequelize = new Sequelize('prueba-backend-jhony', 'root', '', {
+    host: 'localhost',
     dialect: 'mysql'
 })
 
-module.exports = db
+sequelize.authenticate()
+.then(() => {
+    console.log('CONEXION A LA BASE DE DATOS OK')
+})
+.catch(error => {
+    console.log(error)
+})
+
+module.exports = sequelize

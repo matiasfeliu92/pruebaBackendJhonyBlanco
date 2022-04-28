@@ -2,10 +2,11 @@ const ViviendaModel = require('../models/Vivienda')
 
 const viviendaController = {
 
-    mostrarTodas: (req, res) => {
-        const viviendas = ViviendaModel.findAll()
+    mostrarTodas: async(req, res) => {
+        const viviendas = await ViviendaModel.findAll({attributes: ['tipo', 'superficie', 'precio', 'ubicacion']})
         if(viviendas) {
             res.status(200).json(viviendas)
+            console.log(viviendas)
         } else {
             res.status(403).json({message: 'no existen viviendas registradas'})
         }
