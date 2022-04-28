@@ -4,7 +4,7 @@ const {Op} = require('sequelize')
 const viviendaController = {
 
     mostrarTodas: async(req, res) => {
-        const viviendas = await ViviendaModel.findAll({attributes: ['tipo', 'superficie', 'precio', 'ubicacion', 'imagen']})
+        const viviendas = await ViviendaModel.findAll({attributes: ['id', 'tipo', 'superficie', 'precio', 'ubicacion', 'imagen']})
         if(viviendas) {
             res.status(200).json(viviendas)
             console.log(viviendas)
@@ -15,31 +15,11 @@ const viviendaController = {
 
     mostrarPorID: async(req, res) => {
         const id = req.params.id
-        const vivienda = await ViviendaModel.findOne({where: {id: id}, attributes: ['tipo', 'superficie', 'precio', 'ubicacion', 'imagen']})
+        const vivienda = await ViviendaModel.findOne({where: {id: id}, attributes: ['id', 'tipo', 'superficie', 'precio', 'ubicacion', 'imagen']})
         if (vivienda) {
             res.status(200).json(vivienda)
         } else {
             res.status(403).json({message: 'no existe la vivienda deseada'})
-        }
-    },
-
-    mostrarMayoresA100M2: async(req, res) => {
-        //const superficie = req.params.superficie
-        const vivienda = await ViviendaModel.findAll({where: {superficie: {[Op.eq]: 100}}, attributes:["tipo","superficie", "precio", "ubicacion"]})
-        if(vivienda) {
-            res.status(200).json(vivienda)
-        } else {
-            res.status(403).json({message: 'no existen viviendas de mas de 100m2'})
-        }
-    },
-
-    mostrarMenoresA100M2: async(req, res) => {
-        const superficie = req.params.superficie
-        const vivienda = await ViviendaModel.findAll({where: {superficie: { [Op.lte]: 100 }}})
-        if(vivienda) {
-            res.status(200).json(vivienda)
-        } else {
-            res.json({message: 'no existen viviendas de menos de 100m2', status: 403})
         }
     },
 
@@ -60,6 +40,17 @@ const viviendaController = {
             res.status(200).json(viviendaActualizada)
         } else {
             res.status(403).json({message: 'no se pudo actualizar la vivienda'})
+        }
+    }, 
+
+    eliminar: async(req, res) => {
+        const id = req.params.id
+        const vivienda = await ViviendaModel.findOne({where:{id: id}})
+        if (vivienda) {
+            const vivienda = await ViviendaModel.destroy({where:{id: id}})
+            res.status(200).json(vivienda)
+        } else {
+            res.status(403).json({message: 'no se pudo eliminar la vivienda seleccionada'})
         }
     }
     
