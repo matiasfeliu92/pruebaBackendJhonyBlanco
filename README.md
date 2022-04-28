@@ -3,4 +3,5 @@ aplicacion para cotizar viviendas, en funcion del tipo, superficie, el precio y 
 
 # Instalacion
 * 1 Clonar este proyecto
-* 2 En la carpeta raiz "Proyecto 1 bootcamp...", ejecutar el comando "npm install" para instalar las dependencias de Node Js
+* 2 En la carpeta raiz "pruebaBackendJhonyBlanco", dentro de "server", ejecutar el comando "npm install" para instalar las dependencias de Node Js
+* 3 Ingresar a la carpeta client con el comando "cd client" y ejecutar el comando "npm install" para instalar las dependencias de React js
