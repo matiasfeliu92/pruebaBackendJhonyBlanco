@@ -32,6 +32,7 @@ const MostrarViviendas = () => {
                     <p>Ubicacion: {vivienda.ubicacion}</p>
                     <p>Precio: ${vivienda.precio}</p>
                     <img className="imgVivienda img-thumbnail rounded img-fluid" src={vivienda.imagen} alt="img" />
+                    <Link to={`/viviendas/actualizar/${vivienda.id}`} className='btn btn-info'>Actualizar</Link>
                 </div>
             ))}
         </div>
