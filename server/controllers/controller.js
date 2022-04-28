@@ -1,4 +1,5 @@
 const ViviendaModel = require('../models/Vivienda')
+const {Op} = require('sequelize')
 
 const viviendaController = {
 
@@ -18,17 +19,17 @@ const viviendaController = {
         if (vivienda) {
             res.status(200).json(vivienda)
         } else {
-            res.json({message: 'no existe la vivienda deseada', status: 403})
+            res.status(403).json({message: 'no existe la vivienda deseada'})
         }
     },
 
     mostrarMayoresA100M2: async(req, res) => {
-        const superficie = req.params.superficie
-        const vivienda = await ViviendaModel.findAll({where: {superficie: { [Op.gte]: 100 }}})
+        //const superficie = req.params.superficie
+        const vivienda = await ViviendaModel.findAll({where: {superficie: {[Op.eq]: 100}}, attributes:["tipo","superficie", "precio", "ubicacion"]})
         if(vivienda) {
             res.status(200).json(vivienda)
         } else {
-            res.json({message: 'no existen viviendas de mas de 100m2', status: 403})
+            res.status(403).json({message: 'no existen viviendas de mas de 100m2'})
         }
     },
 
@@ -58,7 +59,7 @@ const viviendaController = {
             const viviendaActualizada = await ViviendaModel.update(req.body, {where: {id: id}})
             res.status(200).json(viviendaActualizada)
         } else {
-            res.json({message: 'no se pudo actualizar la vivienda', status: 403})
+            res.status(403).json({message: 'no se pudo actualizar la vivienda'})
         }
     }
     
