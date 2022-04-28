@@ -11,7 +11,7 @@ aplicacion para cotizar viviendas, en funcion del tipo, superficie, el precio y 
 * 2 Salir de la carpeta server e ingresar a pruebaBackendJhonyBlanco/client, ejecutar el comando "npm start" para iniciar la interfaz grafica con React
 
 # Armado de la base de datos
-* las consultas a la tabla "viviendas" de la base de datos, se realizan a traves del modelo "vivienda", desarrollado con Sequelize. El cual contiene los campos tipo, superficie, precio, ubicacion e imagen de la vivienda
+* las consultas a la tabla "viviendas" de la base de datos "cotizador de viviendas", se realizan a traves del modelo "vivienda", desarrollado con Sequelize. El cual contiene los campos tipo, superficie, precio, ubicacion e imagen de la vivienda
 
 # Navegacion dentro de la App
 * En la ruta raiz "http://localhost:4000/viviendas" se encuentra la lista de todas las viviendas disponibles, con su tipo, ubicacion, superficie, precio y una foto
