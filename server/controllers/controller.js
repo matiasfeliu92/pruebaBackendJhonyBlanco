@@ -4,7 +4,7 @@ const {Op} = require('sequelize')
 const viviendaController = {
 
     mostrarTodas: async(req, res) => {
-        const viviendas = await ViviendaModel.findAll({attributes: ['tipo', 'superficie', 'precio', 'ubicacion']})
+        const viviendas = await ViviendaModel.findAll({attributes: ['tipo', 'superficie', 'precio', 'ubicacion', 'imagen']})
         if(viviendas) {
             res.status(200).json(viviendas)
             console.log(viviendas)
@@ -15,7 +15,7 @@ const viviendaController = {
 
     mostrarPorID: async(req, res) => {
         const id = req.params.id
-        const vivienda = await ViviendaModel.findOne({where: {id: id}, attributes: ['tipo', 'superficie', 'precio', 'ubicacion']})
+        const vivienda = await ViviendaModel.findOne({where: {id: id}, attributes: ['tipo', 'superficie', 'precio', 'ubicacion', 'imagen']})
         if (vivienda) {
             res.status(200).json(vivienda)
         } else {
