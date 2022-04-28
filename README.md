@@ -10,6 +10,12 @@ aplicacion para cotizar viviendas, en funcion del tipo, superficie, el precio y 
 * 1 Dentro de la carpeta pruebaBackendJhonyBlanco/server ejecutar el comando "npm run dev" para iniciar el servidor con Express
 * 2 Salir de la carpeta server e ingresar a pruebaBackendJhonyBlanco/client, ejecutar el comando "npm start" para iniciar la interfaz grafica con React
 
+# Navegacion dentro de la App
+* En la ruta raiz "http://localhost:4000/viviendas" se encuentra la lista de todas las viviendas disponibles, con su tipo, ubicacion, superficie y precio
+* En la ruta "http://localhost:4000/viviendas/crear" se puede ingresar una nueva vivienda a traves del formulario
+* En la ruta "http://localhost:4000/viviendas/actualizar/id" se pueden actualizar los datos de cada vivienda
+* En la ruta "http://localhost:4000/viviendas/eliminar/id" se puede eliminar una vivienda si se desea
+
 # Tecnologias utilizadas
 * Para el Backend se uso: Node Js, Express con Sequelize y MySql para la base de datos
 * Para el Frontend se uso: React Js con axios para capturar la informacion desde el Backend y algunos hooks como useState, useEffect y useNavigate
