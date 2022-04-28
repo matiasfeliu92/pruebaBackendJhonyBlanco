@@ -14,7 +14,7 @@ const viviendaController = {
 
     mostrarPorID: async(req, res) => {
         const id = req.params.id
-        const vivienda = await ViviendaModel.findOne({where: {id: id}})
+        const vivienda = await ViviendaModel.findOne({where: {id: id}, attributes: ['tipo', 'superficie', 'precio', 'ubicacion']})
         if (vivienda) {
             res.status(200).json(vivienda)
         } else {
